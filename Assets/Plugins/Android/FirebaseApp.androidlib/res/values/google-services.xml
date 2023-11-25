@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">953907620803</string>
+  <string name="google_storage_bucket" translatable="false">papumba-7fd9a.appspot.com</string>
+  <string name="project_id" translatable="false">papumba-7fd9a</string>
+  <string name="google_api_key" translatable="false">AIzaSyA1ck-I-inYUBGoauFGETcyiDV335zzW3s</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA1ck-I-inYUBGoauFGETcyiDV335zzW3s</string>
+  <string name="google_app_id" translatable="false">1:953907620803:android:b4ac52eb13fe9f92092b76</string>
+</resources>

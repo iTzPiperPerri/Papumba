@@ -15,23 +15,52 @@ using Firebase.Extensions;
 
 public class GoogleSignInManager : MonoBehaviour
 {
-    public TextMeshProUGUI infoText;
-    string webClientId = "953907620803-ptnskpb61qg89f453flnj5judnbptf3o.apps.googleusercontent.com";
 
+    //Firebase
     Firebase.Auth.FirebaseAuth auth;
     Firebase.Auth.FirebaseUser user;
+    
+    
+
+    //Google Auth
+    string webClientId = "953907620803-ptnskpb61qg89f453flnj5judnbptf3o.apps.googleusercontent.com";
     GoogleSignInConfiguration configuration;
 
+
+    //UI ELEMENTS
     public TextMeshProUGUI UsernameTxt, UserEmailTxt;
     public Image UserProfilePic;
     public string imageUrl;
     public GameObject LoginScreen, ProfileScreen;
+    public TextMeshProUGUI infoText;
+
+    public TMP_InputField UIemail, UIpassword;
 
 
     void Awake()
     {
         configuration = new GoogleSignInConfiguration { WebClientId = webClientId, RequestEmail = true, RequestIdToken = true };
         CheckFirebaseDependencies();
+    }
+
+
+    //Firebase Initialization
+    private void CheckFirebaseDependencies()
+    {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        {
+            if (task.IsCompleted)
+            {
+                if (task.Result == DependencyStatus.Available)
+                    auth = FirebaseAuth.DefaultInstance;
+                else
+                    AddToInformation("Could not resolve all Firebase dependencies: " + task.Result.ToString());
+            }
+            else
+            {
+                AddToInformation("Dependency check was not completed. Error : " + task.Exception.Message);
+            }
+        });
     }
 
     void Start()
@@ -44,6 +73,73 @@ public class GoogleSignInManager : MonoBehaviour
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
     }
 
+
+    //------------Email Auth Start------------------------//
+
+
+    //Sign Up
+    void EmailSignUp(string email, string password)
+    {
+        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                return;
+            }
+
+            // Sign-up successful, user is now authenticated
+            FirebaseUser newUser = task.Result.User;
+            Debug.Log("User signed up successfully: " + newUser.Email);
+        });
+    }
+
+    public void EmailSignInClick()
+    {
+        EmailSignUp(UIemail.text, UIpassword.text);
+    }
+
+    //Log in
+    void EmailLogIn(string email, string password)
+    {
+        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                return;
+            }
+
+            Firebase.Auth.AuthResult result = task.Result;
+            Debug.LogFormat("User signed in successfully: {0} ({1})",
+                result.User.DisplayName, result.User.UserId);
+        });
+
+
+    }
+
+    public void EmailLogInClick()
+    {
+        EmailLogIn(UIemail.text, UIpassword.text);
+    }
+
+
+    //------------Email Auth End------------------------//
+
+
+
+    //------------Google Auth Start------------------------//
+
+    //Google Sign in Fuction to be called on CTA
     public void GoogleSignInClick()
     {
         GoogleSignIn.Configuration = configuration;
@@ -54,6 +150,8 @@ public class GoogleSignInManager : MonoBehaviour
         GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnGoogleAuthenticatedFinished);
     }
 
+
+    //User is registered on Firebase 
     void OnGoogleAuthenticatedFinished(Task<GoogleSignInUser> task)
     {
         if (task.IsFaulted)
@@ -119,26 +217,11 @@ public class GoogleSignInManager : MonoBehaviour
         UserProfilePic.sprite = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.width), new Vector2(0, 0));
     }
 
-    private void CheckFirebaseDependencies()
-    {
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
-        {
-            if (task.IsCompleted)
-            {
-                if (task.Result == DependencyStatus.Available)
-                    auth = FirebaseAuth.DefaultInstance;
-                else
-                    AddToInformation("Could not resolve all Firebase dependencies: " + task.Result.ToString());
-            }
-            else
-            {
-                AddToInformation("Dependency check was not completed. Error : " + task.Exception.Message);
-            }
-        });
-    }
+    
 
     public void SignInWithGoogle() { OnSignIn(); }
     public void SignOutFromGoogle() { OnSignOut(); }
+
 
     private void OnSignIn()
     {
@@ -160,27 +243,6 @@ public class GoogleSignInManager : MonoBehaviour
     {
         AddToInformation("Calling Disconnect");
         GoogleSignIn.DefaultInstance.Disconnect();
-    }
-
-
-
-    private void SignInWithGoogleOnFirebase(string idToken)
-    {
-        Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
-
-        auth.SignInWithCredentialAsync(credential).ContinueWith(task =>
-        {
-            AggregateException ex = task.Exception;
-            if (ex != null)
-            {
-                if (ex.InnerExceptions[0] is FirebaseException inner && (inner.ErrorCode != 0))
-                    AddToInformation("\nError code = " + inner.ErrorCode + " Message = " + inner.Message);
-            }
-            else
-            {
-                AddToInformation("Sign In Successful.");
-            }
-        });
     }
 
     public void OnSignInSilently()
@@ -205,4 +267,8 @@ public class GoogleSignInManager : MonoBehaviour
     }
 
     private void AddToInformation(string str) { infoText.text += "\n" + str; }
+
+    //------------Google Auth End------------------------//
+
+
 }

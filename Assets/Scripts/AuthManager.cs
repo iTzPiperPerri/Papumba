@@ -13,8 +13,9 @@ using System.Net.Http;
 using Firebase.Extensions;
 
 
-public class GoogleSignInManager : MonoBehaviour
+public class AuthManager : MonoBehaviour
 {
+    public static AuthManager instance;
 
     //Firebase
     Firebase.Auth.FirebaseAuth auth;
@@ -39,6 +40,17 @@ public class GoogleSignInManager : MonoBehaviour
 
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+            
+        else 
+        {
+            Destroy(gameObject);
+        }
+           
+
         configuration = new GoogleSignInConfiguration { WebClientId = webClientId, RequestEmail = true, RequestIdToken = true };
         CheckFirebaseDependencies();
     }

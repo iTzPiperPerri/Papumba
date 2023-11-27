@@ -124,7 +124,8 @@ public class AuthManager : MonoBehaviour
     //Log in
     void EmailLogIn(string email, string password)
     {
-        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+        Debug.LogError("OBOROBO1");
+        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task => {
             if (task.IsCanceled)
             {
                 Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
@@ -140,7 +141,14 @@ public class AuthManager : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
 
-            AfterLoginScreen.instance.EmailLogCompleted(user.Email, user.DisplayName);
+            Debug.LogError("OBOROBO2");
+
+
+
+            AfterLoginScreen.instance.EmailLogCompleted(result.User.Email, result.User.DisplayName);
+
+
+
         });
 
 

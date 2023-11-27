@@ -32,11 +32,11 @@ public class AfterLoginScreen : MonoBehaviour
 
     public void RestartApp()
     {
-        Debug.LogError("MAMARRE 1");
+        
         AuthManager.instance.SignOut();
-        Debug.LogError("MAMARRE 2");
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.LogError("MAMARRE 3");
+        
     }
 
     public void GoogleAuthCompleted(string _email, string _username)
@@ -63,11 +63,17 @@ public class AfterLoginScreen : MonoBehaviour
 
     public void EmailLogCompleted(string _email, string _username)
     {
+      
         method.text = "Email Log In Succesful";
+       
         googleProfilePic.gameObject.SetActive(false);
+       
         email.text = _email;
+        
         username.text = _username;
+        
         SlideIn();
+        
 
 
     }

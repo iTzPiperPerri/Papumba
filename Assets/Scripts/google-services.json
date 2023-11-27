@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "953907620803",
+    "project_id": "papumba-7fd9a",
+    "storage_bucket": "papumba-7fd9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953907620803:android:b4ac52eb13fe9f92092b76",
+        "android_client_info": {
+          "package_name": "com.BW.Papumba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1ck-I-inYUBGoauFGETcyiDV335zzW3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

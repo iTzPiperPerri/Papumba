@@ -259,8 +259,9 @@ public class AuthManager : MonoBehaviour
 
     private void OnSignOut()
     {
-        AddToInformation("Calling SignOut");
+        //AddToInformation("Calling SignOut");
         GoogleSignIn.DefaultInstance.SignOut();
+
     }
 
     public void OnDisconnect()

@@ -17,13 +17,18 @@ public class OptionSelector : MonoBehaviour
 
     private void Start()
     {
-        cTAanimation = GetComponent<CTAanimation>();
+        cTAanimation =blockButton.GetComponent<CTAanimation>();
     }
 
     private void Update() {
         if (blockButton != null) {
             if (numOptionsSelected == 0) {
-                blockButton.interactable = false;
+                if (onlyOnce) {
+                    blockButton.interactable = false;
+                    cTAanimation.StopAnimation();
+                    onlyOnce = false;
+                }
+                
                 
             } else {
 

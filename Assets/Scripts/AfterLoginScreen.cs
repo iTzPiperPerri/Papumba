@@ -32,7 +32,8 @@ public class AfterLoginScreen : MonoBehaviour
 
     public void RestartApp()
     {
-        
+        AuthManager.instance.SignOutFromGoogle();
+
         AuthManager.instance.SignOut();
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

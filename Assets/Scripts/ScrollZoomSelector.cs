@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScrollZoomSelector : MonoBehaviour
 {
     public List<ScrollZoomAnimation> scrollableOptions;
     [SerializeField] ScrollZoomAnimation selectedOption;
+    [SerializeField] TextMeshProUGUI debugText;
     private void Update() {
         GetClosestOption();
     }
@@ -24,5 +26,6 @@ public class ScrollZoomSelector : MonoBehaviour
         }
 
         selectedOption = closestOption;
+        debugText.text = "Debug, selected option : " + selectedOption.gameObject.name;
     }
 }

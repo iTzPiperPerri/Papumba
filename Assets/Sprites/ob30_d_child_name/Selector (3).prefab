@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5565882578204282148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2444331361804668150}
+  - component: {fileID: 7479450611253683843}
+  - component: {fileID: 4567815875126009392}
+  - component: {fileID: 5317166539828303823}
+  - component: {fileID: 8995897701205311480}
+  - component: {fileID: 2287623783807486177}
+  m_Layer: 5
+  m_Name: Selector (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2444331361804668150
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565882578204282148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.98, y: 0.98, z: 0.98}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00010681152, y: 0}
+  m_SizeDelta: {x: 50.25, y: 50.25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7479450611253683843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565882578204282148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b42570416bdca4697b2749e5bf8c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    id: 9:12583
+    formattedName: Papumbavatars_11
+    spriteName: Papumbavatars_11 4x 1968860498.png
+    tags: f6010000c9000000
+    childIndexes: 
+    fcuInstance: {fileID: 0}
+    gameObject: {fileID: 5565882578204282148}
+    transformData:
+      anchorMin: {x: 0, y: 0}
+      anchorMax: {x: 0, y: 0}
+      anchoredPosition: {x: 0, y: 0}
+      sizeDelta: {x: 0, y: 0, z: 0}
+      localRotation: {x: 0, y: 0, z: 0, w: 0}
+      localScale: {x: 0, y: 0, z: 0}
+    singleColor: {r: 0, g: 0, b: 0, a: 0}
+    spriteSize: {x: 201, y: 201}
+    size: {x: 50.25, y: 50.25}
+    position: {x: 3498.9172, y: 10988.782}
+    fcuImageType: 1
+    buttonComponent: 0
+    hash: 1968860498
+    hashDataTree: "\u2014\u2014\u2014\u2014ob30_d_child_name/Frame 6/Papumbavatars_11\r\n   
+      isVisible | True\r\n    Type | FRAME\r\n    GetFigmaRotationAngle | 0\r\n   
+      FillGeometry | -1385371163\r\n    StrokeWeight | 2,782012\r\n    StrokeAlign
+      | OUTSIDE\r\n    CornerRadius | 37,09349\r\n    BlendMode | PASS_THROUGH\r\n   
+      ClipsContent | True\r\n    Size | (44,5, 44,5)\r\n    isVisible | True\r\n   
+      Type | FRAME\r\n    GetFigmaRotationAngle | 0\r\n    FillGeometry | -1385371163\r\n   
+      StrokeWeight | 2,782012\r\n    StrokeAlign | OUTSIDE\r\n    CornerRadius |
+      37,09349\r\n    BlendMode | PASS_THROUGH\r\n    ClipsContent | True\r\n   
+      Size | (44,5, 44,5)\r\n    \u2014\u2014\u2014\u2014Fills\r\n        IsVisible
+      | False\r\n        Type | SOLID\r\n        Color | RGBA(1,000, 1,000, 1,000,
+      1,000)\r\n        BlendMode | NORMAL\r\n    \u2014\u2014\u2014\u2014Strokes\r\n       
+      IsVisible | True\r\n        Type | SOLID\r\n        Color | RGBA(1,000, 0,635,
+      0,000, 1,000)\r\n        BlendMode | NORMAL\r\n    \u2014\u2014\u2014\u2014ArcData\r\n       
+      StartingAngle | 0\r\n        EndingAngle | 0\r\n        InnerRadius | 0\r\n\u2014\u2014\u2014\u2014ob30_d_child_name/Frame
+      6/Papumbavatars_11/Group\r\n    isVisible | True\r\n    Type | GROUP\r\n   
+      GetFigmaRotationAngle | 0\r\n    StrokeWeight | 0,9273374\r\n    StrokeAlign
+      | INSIDE\r\n    BlendMode | PASS_THROUGH\r\n    ClipsContent | False\r\n   
+      Size | (44,5, 44,5)\r\n    isVisible | True\r\n    Type | GROUP\r\n    GetFigmaRotationAngle
+      | 0\r\n    StrokeWeight | 0,9273374\r\n    StrokeAlign | INSIDE\r\n    BlendMode
+      | PASS_THROUGH\r\n    ClipsContent | False\r\n    Size | (44,5, 44,5)\r\n   
+      \u2014\u2014\u2014\u2014ArcData\r\n        StartingAngle | 0\r\n        EndingAngle
+      | 0\r\n        InnerRadius | 0\r\n\u2014\u2014\u2014\u2014ob30_d_child_name/Frame
+      6/Papumbavatars_11/Group/XMLID_680_\r\n    isVisible | True\r\n    Type | VECTOR\r\n   
+      GetFigmaRotationAngle | 0\r\n    FillGeometry | -260966325\r\n    StrokeWeight
+      | 0,9273374\r\n    StrokeAlign | INSIDE\r\n    BlendMode | PASS_THROUGH\r\n   
+      Size | (44,5, 44,5)\r\n    isVisible | True\r\n    Type | VECTOR\r\n    GetFigmaRotationAngle
+      | 0\r\n    FillGeometry | -260966325\r\n    StrokeWeight | 0,9273374\r\n   
+      StrokeAlign | INSIDE\r\n    BlendMode | PASS_THROUGH\r\n    Size | (44,5, 44,5)\r\n   
+      \u2014\u2014\u2014\u2014Fills\r\n        IsVisible | True\r\n        Type |
+      SOLID\r\n        Color | RGBA(1,000, 0,439, 0,263, 1,000)\r\n        BlendMode
+      | NORMAL\r\n    \u2014\u2014\u2014\u2014ArcData\r\n        StartingAngle |
+      0\r\n        EndingAngle | 0\r\n        InnerRadius | 0\r\n"
+    parentIndex: 481
+    hierarchy: ob30_d_child_name/Frame 6/Papumbavatars_11
+    spritePath: 
+    link: 
+    humanizedTextPrefabName: 
+    tagReason: SingleImage
+    isDownloadable: 0
+    isDuplicate: 0
+    isMutual: 0
+    isEmptyMask: 0
+    isEmpty: 0
+    needDownload: 1
+    needGenerate: 0
+    forceImage: 1
+    forceContainer: 0
+    isInsideDownloadable: 0
+    insideForceImage: 0
+    hasFontAsset: 0
+--- !u!114 &4567815875126009392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565882578204282148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 44.512196
+  m_MinHeight: 44.512196
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!222 &5317166539828303823
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565882578204282148}
+  m_CullTransparentMesh: 1
+--- !u!114 &8995897701205311480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565882578204282148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9b03af73e52932045b2c4473e17f95e3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2287623783807486177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565882578204282148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}

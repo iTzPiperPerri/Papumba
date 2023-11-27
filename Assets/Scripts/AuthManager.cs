@@ -29,13 +29,12 @@ public class AuthManager : MonoBehaviour
 
 
     //UI ELEMENTS
-    public TextMeshProUGUI UsernameTxt, UserEmailTxt;
     public Image UserProfilePic;
     public string imageUrl;
-    public GameObject LoginScreen, ProfileScreen;
+
     public TextMeshProUGUI infoText;
 
-    public TMP_InputField UIemail, UIpassword;
+    public TMP_InputField SUemail, SUpassword, LIemail, LIpassword;
 
 
     void Awake()
@@ -108,12 +107,18 @@ public class AuthManager : MonoBehaviour
             // Sign-up successful, user is now authenticated
             FirebaseUser newUser = task.Result.User;
             Debug.Log("User signed up successfully: " + newUser.Email);
+
+            AfterLoginScreen.instance.EmailRegCompleted(newUser.Email, newUser.DisplayName);
+
         });
     }
 
-    public void EmailSignInClick()
+    public void EmailSignUpClick()
     {
-        EmailSignUp(UIemail.text, UIpassword.text);
+        Debug.LogError("Will call" + " " + SUemail);
+        EmailSignUp(SUemail.text, SUpassword.text);
+        Debug.LogError("Called" + " " + SUemail);
+
     }
 
     //Log in
@@ -134,6 +139,8 @@ public class AuthManager : MonoBehaviour
             Firebase.Auth.AuthResult result = task.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
+
+            AfterLoginScreen.instance.EmailLogCompleted(user.Email, user.DisplayName);
         });
 
 
@@ -141,9 +148,10 @@ public class AuthManager : MonoBehaviour
 
     public void EmailLogInClick()
     {
-        EmailLogIn(UIemail.text, UIpassword.text);
+        EmailLogIn(LIemail.text, LIpassword.text);
     }
 
+   
 
     //------------Email Auth End------------------------//
 
@@ -195,11 +203,7 @@ public class AuthManager : MonoBehaviour
 
                 user = auth.CurrentUser;
 
-                UserEmailTxt.text = user.Email;
-                UsernameTxt.text = user.DisplayName;
-
-                LoginScreen.SetActive(false);
-                ProfileScreen.SetActive(true);
+                AfterLoginScreen.instance.GoogleAuthCompleted(user.Email,user.DisplayName);
 
                 StartCoroutine(LoadImage(CheckImageUrl(user.PhotoUrl.ToString())));
 
@@ -281,6 +285,19 @@ public class AuthManager : MonoBehaviour
     private void AddToInformation(string str) { infoText.text += "\n" + str; }
 
     //------------Google Auth End------------------------//
+
+    public void SignOut()
+    {
+        if (auth != null)
+        {
+            auth.SignOut();
+            Debug.Log("User signed out from all authentication methods.");
+        }
+        else
+        {
+            Debug.LogWarning("FirebaseAuth instance is null. Make sure to initialize it first.");
+        }
+    }
 
 
 }

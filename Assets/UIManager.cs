@@ -5,17 +5,106 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 public class UIManager : MonoBehaviour
-{
-    [SerializeField] RectTransform main, welcome, brings, pInterest, customize, birth, month, lang, favorite, cInterest, cName, create;
-    // Start is called before the first frame update
-    void Start()
-    {
-        main.DOAnchorPos(this.transform.position, 2f);
-    }
 
-    // Update is called once per frame
-    void Update()
+    
+
+{
+    public static UIManager instance;
+
+    [SerializeField]float slideTime;
+    
+    
+    // Start is called before the first frame update
+    void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+     
+
+    //LEFT SLIDE
+    public void SlideScreen(RectTransform id) {
+        StartCoroutine(SlideScreenCoroutine(id));
+    }
+    public void SlideScreenOut(RectTransform id) {
+        StartCoroutine(SlideScreenOutCoroutine(id));
+    }
+    IEnumerator SlideScreenCoroutine(RectTransform screen) {
+       screen.transform.SetAsLastSibling();
+        float time = 0;
+            Vector2 startPosition = new Vector2(1533, screen.anchoredPosition.y);
+            Vector2 targetPosition = new Vector2(428, screen.anchoredPosition.y);
+            
+            while (time < slideTime) {
+            screen.anchoredPosition = Vector2.Lerp(startPosition,targetPosition , time / slideTime);
+
+                time += Time.deltaTime;
+                yield return null;
+            }
+            screen.anchoredPosition = targetPosition;
         
     }
+    IEnumerator SlideScreenOutCoroutine(RectTransform screen) {
+        
+        float time = 0;
+        Vector2 targetPosition = new Vector2(1533, screen.anchoredPosition.y);
+        Vector2 startPosition = new Vector2(428, screen.anchoredPosition.y);
+
+
+        while (time < slideTime) {
+            screen.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, time / slideTime);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+        screen.anchoredPosition = targetPosition;
+
+    }
+
+    //BOTTOM SLIDE
+    public void BottomShowScreen(RectTransform id) {
+        StartCoroutine(BottomShowScreenCoroutine(id));
+    }
+    public void BottomHideScreen(RectTransform id) {
+        StartCoroutine(BottomHideScreenCoroutine(id));
+    }
+
+    IEnumerator BottomShowScreenCoroutine(RectTransform screen) {
+        transform.SetAsLastSibling();
+        float time = 0;
+        Vector2 startPosition = new Vector2(screen.anchoredPosition.x, -1091);
+        Vector2 targetPosition = new Vector2(screen.anchoredPosition.x, -447);
+
+        while (time < slideTime) {
+            screen.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, time / slideTime);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+        screen.anchoredPosition = targetPosition;
+
+    }
+    IEnumerator BottomHideScreenCoroutine(RectTransform screen) {
+       
+        float time = 0;
+        Vector2 startPosition = new Vector2(screen.anchoredPosition.x, -447);
+        Vector2 targetPosition = new Vector2(screen.anchoredPosition.x, -1091);
+
+        while (time < slideTime) {
+            screen.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, time / slideTime);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+        screen.anchoredPosition = targetPosition;
+
+    }
+
 }
